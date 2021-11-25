@@ -5,9 +5,9 @@ using UnityEngine;
 public class StatusManager : Singleton<StatusManager>
 {
     [Header("Player Status")]
-    public int Hp = 100;
-    public float Speed = 50f;
-    public float JumpPower = 10f;
+    public int Hp = 3;
+    public float Speed = 8;
+    public float JumpPower = 15;
 
     
 }
