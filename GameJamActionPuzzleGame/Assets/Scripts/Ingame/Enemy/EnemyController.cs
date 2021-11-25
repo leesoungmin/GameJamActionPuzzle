@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
     public float Speed;
     public int nextMove;
 
     Rigidbody2D rigidbody;
     SpriteRenderer spriteRenderer;
 
-
-
-    private void Start()
+    void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,7 +19,7 @@ public class EnemyController : MonoBehaviour
         Invoke("Think", 2f);
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Movement();
     }

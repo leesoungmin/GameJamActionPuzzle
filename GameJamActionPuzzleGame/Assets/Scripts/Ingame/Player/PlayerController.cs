@@ -59,8 +59,4 @@ public class PlayerController : MonoBehaviour
         else return;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
 }
