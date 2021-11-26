@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TitleController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject popUp;
+
+
+    private void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+           if (EventSystem.current.IsPointerOverGameObject() == false)
+           {
+               popUp.SetActive(false);
+           }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

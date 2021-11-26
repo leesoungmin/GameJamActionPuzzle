@@ -7,6 +7,6 @@ public class ScreenTouch : MonoBehaviour
 {
     public void TouchScreen()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene(2);
     }
 }
