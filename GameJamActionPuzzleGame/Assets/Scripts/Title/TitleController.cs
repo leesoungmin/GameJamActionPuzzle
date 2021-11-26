@@ -2,21 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TitleController : MonoBehaviour
 {
-    public GameObject popUp;
+    public Button StartButton;
+    public Button ExitButton;
 
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-           if (EventSystem.current.IsPointerOverGameObject() == false)
-           {
-               popUp.SetActive(false);
-           }
-        }
+       
     }
+
+    public void Button() 
+    { 
+        Debug.Log("Button Click!");
+        SceneManager.LoadScene("IngameScene");
+    }
+
+    public void Exitbutton()
+    {
+        Debug.Log("Button");
+        Application.Quit();
+    }
+
+
+    
 
 }
