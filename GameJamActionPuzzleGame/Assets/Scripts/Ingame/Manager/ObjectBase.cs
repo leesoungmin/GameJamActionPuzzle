@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public abstract class ObjectBase : MonoBehaviour
 {
+    int Hp;
+    int maxHp;
+    float Speed;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+        Hp = maxHp;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
