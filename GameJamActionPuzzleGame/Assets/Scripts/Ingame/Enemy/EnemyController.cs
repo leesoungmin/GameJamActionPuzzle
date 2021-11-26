@@ -64,4 +64,9 @@ public class EnemyController : MonoBehaviour
         Invoke("Think", 2);
 
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -6,23 +6,23 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpPower;
-
+    public bool isDie;
 
     Rigidbody2D rigidbody2D;
     SpriteRenderer spriteRenderer;
 
-    private void Start()
+    void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        Movement();
 
+        Movement();
     }
-    private void Update()
+    void Update()
     {
         if (Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground")))
         {
@@ -51,12 +51,25 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if(Time.timeScale == 1)
         {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
                 rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 
+            }
         }
-        else return;
+
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (transform.CompareTag("HeadBox"))
+        {
+            collision.transform.GetComponentInParent<EnemyController>().Destroy();
+        }
+
+    }
+
 
 }

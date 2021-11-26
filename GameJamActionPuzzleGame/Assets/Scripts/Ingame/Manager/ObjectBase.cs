@@ -4,19 +4,33 @@ using UnityEngine;
 
 public abstract class ObjectBase : MonoBehaviour
 {
-    int Hp;
-    int maxHp;
-    float Speed;
+    public int Hp;
+    public int maxHp;
+    public float Speed;
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    virtual protected void Start()
     {
         Hp = maxHp;
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    virtual protected void Update()
     {
         
+    }
+
+    virtual protected void FixedUpdate()
+    { 
+
+    }
+
+    virtual protected void Die()
+    {
+
+    }
+    virtual protected void Att()
+    {
+
     }
 }
