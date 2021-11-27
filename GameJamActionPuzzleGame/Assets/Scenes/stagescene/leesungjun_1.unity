@@ -32699,7 +32699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8072882801058682048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.24, y: 5.98, z: 0}
+  m_LocalPosition: {x: -18.39, y: -0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8072882801232701922}
@@ -32740,6 +32740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpPower: 15
+  isDie: 0
 --- !u!50 &8072882801058682050
 Rigidbody2D:
   serializedVersion: 4
