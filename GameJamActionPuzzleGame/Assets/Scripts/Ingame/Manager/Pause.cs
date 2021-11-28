@@ -2,33 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    public Text pauseText;
+    [SerializeField] GameObject PausePopupPanel;
 
-    //private void Update()
-    //{
-    //    transform.Translate(Time.deltaTime, 0, 0);
 
-    //}
-    
-    //private void FixedUpdate()
-    //{
-            
-    //}
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnClickPauseButton();
+        }
+    }
+
+
+
+    public void rePlay()
+    {
+        PausePopupPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void Exit()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
 
     public void OnClickPauseButton()
     {
-        if(Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
-            pauseText.text = "Puase";
-        }
-        else
-        {
-            Time.timeScale = 0;
-            pauseText.text = "Resume";
-        }
+        Time.timeScale = 0;
+        PausePopupPanel.SetActive(true);
     }
 }
