@@ -128,7 +128,7 @@ public class EnemyController : MonoBehaviour
         }
     }
     IEnumerator BlinkCor()
-    {
+    {   
         for (int i = 0; i < blinkCount * 2; i++)
         {
             spriteRenderer.enabled = !spriteRenderer.enabled;

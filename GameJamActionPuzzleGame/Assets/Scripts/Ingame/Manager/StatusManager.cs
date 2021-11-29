@@ -3,24 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusManager : MonoBehaviour
+public class StatusManager : Singleton<StatusManager>
 {
-
-    static StatusManager instance = null;
-
-    public static StatusManager Instance
-    {
-        get
-        {
-            if (null == instance)
-                return null;
-            return instance;
-        }
-    }
     [SerializeField] float blinkSpeed;
     [SerializeField] int blinkCount;
 
-    [SerializeField] int maxHp;
+    public int maxHp;
     int currentHp;
 
     public bool isInvincible = false;
@@ -28,6 +16,10 @@ public class StatusManager : MonoBehaviour
     bool isknockback = false;
 
     [SerializeField] Text[] txt_Hp;
+
+    public GameObject GameOverPanel;
+    [SerializeField] StageManager theSM;
+
 
     SpriteRenderer spriteRenderer;
 
@@ -125,6 +117,7 @@ public class StatusManager : MonoBehaviour
         isInvincible = false;
         isHurt = false;
     }
+    
 
     public void IncreaseHp(int _num)
     {
@@ -138,7 +131,7 @@ public class StatusManager : MonoBehaviour
         }
         UpdateHpStatus();
     }
-    void UpdateHpStatus()
+    public void UpdateHpStatus()
     {
         for(int i =0; i<txt_Hp.Length; i++)
         {
@@ -155,8 +148,9 @@ public class StatusManager : MonoBehaviour
 
     public void PlayerDead()
     {
-            Debug.Log("죽음");
+        Debug.Log("죽음");
         Time.timeScale = 0;
+        theSM.GameOverPanel.SetActive(true);
     }
 
 }

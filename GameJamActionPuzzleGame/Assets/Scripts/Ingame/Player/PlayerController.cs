@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public float bulletcoolTime;
+    private float bulletcurTime;
+
+    public int maxbulletCount;
+    public int curbulletCount;
+
     public float coolTime = 0.5f;
     float curTime;
 
@@ -18,9 +25,15 @@ public class PlayerController : MonoBehaviour
     bool isMoving;
     bool isJump;
     bool isGround;
+    bool isShout;
     public bool isLadder;
+    public GameObject bullets;
+    public Transform Throwpos;
 
-    Rigidbody2D rigidbody2D;
+
+    [SerializeField] Text text_bulletCount;
+
+    Rigidbody2D rigidbody2D;    
     SpriteRenderer spriteRenderer;
     Animator anim;
 
@@ -29,6 +42,8 @@ public class PlayerController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        curbulletCount = maxbulletCount;
     }
 
     void FixedUpdate()
@@ -42,12 +57,15 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
+        
         Attack();
+        Shout();
+
+        text_bulletCount.text = "x" + curbulletCount.ToString();
     }
     void Ladder()
     {
-        if(isLadder)
+        if (isLadder)
         {
             float ver = Input.GetAxis("Vertical");
             rigidbody2D.gravityScale = 0;
@@ -83,13 +101,25 @@ public class PlayerController : MonoBehaviour
         }
 
         anim.SetBool("isMoving", isMoving);
-
-
-
+    }
+    void Shout()
+    {
+        if (bulletcurTime <= 0 && curbulletCount > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Instantiate(bullets, Throwpos.transform.position, transform.rotation);
+                curbulletCount -= 1;
+            }
+            bulletcurTime = bulletcoolTime;
+        }
+        else
+        {
+            bulletcurTime -= Time.deltaTime;
+        }
     }
     void Attack()
     {
-
         if (curTime <= 0)
         {
             //공격
@@ -98,16 +128,14 @@ public class PlayerController : MonoBehaviour
                 Collider2D[] colliders = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
                 foreach (Collider2D collider in colliders)
                 {
-                    if(collider.tag == "Enemy")
+                    if (collider.tag == "Enemy")
                     {
                         collider.GetComponent<EnemyController>().DecreaseHp(damage);
                     }
                 }
-
                 anim.SetTrigger("isAttack");
                 curTime = coolTime;
             }
-
         }
         else
         {
@@ -131,6 +159,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void IncreaseBullet(int _num)
+    {
+        curbulletCount += _num;
+        if(curbulletCount >= maxbulletCount)
+        {
+            curbulletCount = maxbulletCount;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Grounded"))
@@ -150,7 +186,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Ladder"))
+        if (collision.CompareTag("Ladder"))
         {
             isLadder = true;
         }
@@ -162,5 +198,21 @@ public class PlayerController : MonoBehaviour
         {
             isLadder = false;
         }
+
+        if(collision.CompareTag("HpItem"))
+        {
+            StatusManager.Instance.IncreaseHp(1);
+            collision.gameObject.SetActive(false);
+        }
+
+        if(collision.CompareTag("BulletItem"))
+        {
+            IncreaseBullet(4);
+            collision.gameObject.SetActive(false);
+
+        }
     }
+
+
+
 }
