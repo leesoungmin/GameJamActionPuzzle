@@ -12,6 +12,8 @@ TagManager:
   - Grounded
   - PlayerAtk
   - Ladder
+  - HpItem
+  - BulletItem
   layers:
   - Default
   - TransparentFX

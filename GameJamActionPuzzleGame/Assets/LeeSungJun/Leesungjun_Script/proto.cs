@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class proto : MonoBehaviour
 {
     public int currentHp;
     public int maxHP;
@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
 
     public Transform pos;
     public BoxCollider2D box;
-    public Animator anim;
+    //public Animator anim;
 
     Rigidbody2D rigidbody;
     SpriteRenderer spriteRenderer;
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
 
         currentHp = maxHP;
     }
@@ -94,7 +94,7 @@ public class EnemyController : MonoBehaviour
                 {
                     if (collider[i].tag == "Player")
                     {
-                        anim.SetTrigger("isAtt");
+                        //anim.SetTrigger("isAtt");
                     }
                     currentTime = coolTime;
                 }
@@ -124,17 +124,17 @@ public class EnemyController : MonoBehaviour
         {
             currentHp -= _num;
             StartCoroutine("BlinkCor");
-            FloatingTextManager.instance.CreateFloatingText(transform.position,"-1");
+            FloatingTextManager.instance.CreateFloatingText(transform.position, "-1");
         }
     }
     IEnumerator BlinkCor()
-    {   
+    {
         for (int i = 0; i < blinkCount * 2; i++)
         {
             spriteRenderer.enabled = !spriteRenderer.enabled;
             yield return new WaitForSeconds(blinkSpeed);
         }
     }
-    
+
 
 }

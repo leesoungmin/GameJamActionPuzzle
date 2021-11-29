@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
@@ -11,7 +12,20 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("골");
             Time.timeScale = 0;
-            thsSM.ShowNextStageUi();
+            if(thsSM.currentStage <= 1)
+            {
+                thsSM.ShowNextStageUi();
+            }
+            else
+            {
+                StartCoroutine("GameEnding");
+            }
         }
+    }
+    IEnumerator GameEnding()
+    {
+        thsSM.GameClearUi();
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(3);
     }
 }

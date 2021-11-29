@@ -7,8 +7,10 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] GameObject NextPanel;
     [SerializeField] GameObject[] go_Stage;
+    [SerializeField] GameObject GameClearPanel;
+    public GameObject GameOverPanel;
 
-    int currentStage = 0;
+    public int currentStage = 0;
 
     [SerializeField] Rigidbody2D rigidbody;
     Vector2 PlayerPos;
@@ -22,10 +24,16 @@ public class StageManager : MonoBehaviour
     {
         NextPanel.SetActive(true);
     }
+
+    public void GameClearUi()
+    {
+        GameClearPanel.SetActive(true);
+    }
     public void NextStage()
     {
-        if(currentStage < go_Stage.Length -1)
+        if (currentStage < go_Stage.Length - 1)
         {
+
             Time.timeScale = 1;
             rigidbody.gameObject.transform.position = PlayerPos;
             NextPanel.SetActive(false);
@@ -34,12 +42,20 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("모든 스테이지를 클리어함");
+            Debug.Log("골인");
         }
+    }
+
+    public void ReplayButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(2);
     }
 
     public void ExitClick()
     {
+        Time.timeScale = 1;
+        currentStage = 0;
         SceneManager.LoadScene(1);
     }
 }
