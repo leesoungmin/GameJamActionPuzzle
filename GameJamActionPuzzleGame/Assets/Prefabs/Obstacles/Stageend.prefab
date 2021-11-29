@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1291289951834455789}
   - component: {fileID: 1291289951834455788}
   m_Layer: 0
-  m_Name: Stage1end
+  m_Name: Stageend
   m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

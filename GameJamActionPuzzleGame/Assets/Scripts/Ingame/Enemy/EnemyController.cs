@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
 
     public Transform pos;
     public BoxCollider2D box;
-    public Animator anim;
+    Animator anim;
 
     Rigidbody2D rigidbody;
     SpriteRenderer spriteRenderer;
