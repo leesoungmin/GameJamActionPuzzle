@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8853468252520116749}
   - component: {fileID: 8811805949550398968}
-  - component: {fileID: 7555371620238929401}
+  - component: {fileID: 636238798051922967}
   m_Layer: 0
   m_Name: Stone1
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7555371620238929401
+--- !u!60 &636238798051922967
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5022134, y: 0.22996895}
     oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -107,13 +107,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.84209096, y: -0.5317733}
-      - {x: -1, y: -1}
-      - {x: 1, y: -1}
-      - {x: 0.9712291, y: -0.6072688}
-      - {x: 0.7737479, y: -0.34690547}
-      - {x: 0.6802521, y: 0.0006518364}
-      - {x: 0.40627408, y: 0.15823698}
-      - {x: 0.28339505, y: 0.19348073}
-      - {x: -0.13411593, y: 0.17880559}
-      - {x: -0.604058, y: -0.2622471}
+    - - {x: -1.0044268, y: -0.45993793}
+      - {x: 0.99557316, y: -0.45993793}
+      - {x: 0.8232217, y: 0.16306639}
+      - {x: 0.72540104, y: 0.36187828}
+      - {x: 0.6116611, y: 0.48145044}
+      - {x: 0.5611912, y: 0.6615783}
+      - {x: -0.15312183, y: 0.7128178}
+      - {x: -0.25346792, y: 0.6451657}
+      - {x: -0.58519375, y: 0.30249655}

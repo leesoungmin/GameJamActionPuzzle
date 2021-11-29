@@ -40,11 +40,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1807789836060057904}
   - component: {fileID: 1807789836060057907}
-  - component: {fileID: 1807789836060057906}
   - component: {fileID: 1807789836060057909}
   - component: {fileID: 1807789836060057908}
   - component: {fileID: 1807789836060057934}
   - component: {fileID: 1807789836060057905}
+  - component: {fileID: 645393972}
   m_Layer: 0
   m_Name: icon_9
   m_TagString: Enemy
@@ -118,28 +118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1807789836060057906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807789836060057911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc07bce81551b914eb0e6b1bc917307d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHp: 0
-  maxHP: 1
-  Speed: 2
-  nextMove: -1
-  damage: 1
-  blinkCount: 3
-  blinkSpeed: 0.1
-  coolTime: 1
-  pos: {fileID: 1807789835843725832}
-  box: {fileID: 1807789837455282703}
 --- !u!61 &1807789836060057909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,6 +205,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   numnum: 5
+--- !u!114 &645393972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807789836060057911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140651dd44fc973438cc5d6ee61b1c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 0
+  maxHP: 1
+  Speed: 2
+  nextMove: -1
+  damage: 1
+  blinkCount: 3
+  blinkSpeed: 0.1
+  coolTime: 1
+  pos: {fileID: 1807789835843725832}
+  box: {fileID: 1807789837455282703}
 --- !u!1 &1807789837455282702
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullets;
     public Transform Throwpos;
 
+    [SerializeField] GameObject healEffectPrefab;
 
     [SerializeField] Text text_bulletCount;
 
@@ -110,8 +111,8 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(bullets, Throwpos.transform.position, transform.rotation);
                 curbulletCount -= 1;
+                bulletcurTime = bulletcoolTime;
             }
-            bulletcurTime = bulletcoolTime;
         }
         else
         {
@@ -190,6 +191,19 @@ public class PlayerController : MonoBehaviour
         {
             isLadder = true;
         }
+        if (collision.CompareTag("HpItem"))
+        {
+            StatusManager.Instance.IncreaseHp(1);
+            collision.gameObject.SetActive(false);
+            Instantiate(healEffectPrefab, transform.position, Quaternion.identity);
+        }
+
+        if (collision.CompareTag("BulletItem"))
+        {
+            IncreaseBullet(4);
+            collision.gameObject.SetActive(false);
+
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -199,18 +213,7 @@ public class PlayerController : MonoBehaviour
             isLadder = false;
         }
 
-        if(collision.CompareTag("HpItem"))
-        {
-            StatusManager.Instance.IncreaseHp(1);
-            collision.gameObject.SetActive(false);
-        }
-
-        if(collision.CompareTag("BulletItem"))
-        {
-            IncreaseBullet(4);
-            collision.gameObject.SetActive(false);
-
-        }
+        
     }
 
 
