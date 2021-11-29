@@ -18,14 +18,8 @@ public class Goal : MonoBehaviour
             }
             else
             {
-                StartCoroutine("GameEnding");
+                SceneManager.LoadScene(3);
             }
         }
-    }
-    IEnumerator GameEnding()
-    {
-        thsSM.GameClearUi();
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(3);
     }
 }

@@ -25,10 +25,14 @@ public class TitleController : MonoBehaviour
     public void Exitbutton()
     {
         Debug.Log("Button");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 
 
-    
+
 
 }
