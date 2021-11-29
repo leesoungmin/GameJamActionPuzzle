@@ -7,6 +7,11 @@ TagManager:
   - Ground
   - HeadBox
   - Goal
+  - EnemyAtk
+  - Enemy
+  - Grounded
+  - PlayerAtk
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -19,7 +24,7 @@ TagManager:
   - Ground
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 

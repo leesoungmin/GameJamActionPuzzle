@@ -5,6 +5,18 @@ using UnityEngine.UI;
 
 public class StatusManager : MonoBehaviour
 {
+
+    static StatusManager instance = null;
+
+    public static StatusManager Instance
+    {
+        get
+        {
+            if (null == instance)
+                return null;
+            return instance;
+        }
+    }
     [SerializeField] float blinkSpeed;
     [SerializeField] int blinkCount;
 
@@ -12,6 +24,8 @@ public class StatusManager : MonoBehaviour
     int currentHp;
 
     public bool isInvincible = false;
+    bool isHurt;
+    bool isknockback = false;
 
     [SerializeField] Text[] txt_Hp;
 
@@ -31,6 +45,46 @@ public class StatusManager : MonoBehaviour
         
     }
 
+    public void Hurt(int damage, Vector2 pos)
+    {
+        if(!isHurt)
+        {
+            isHurt = true;
+            DereaseHp(damage);
+            if (currentHp <= 0)
+            {
+                PlayerDead();
+            }
+            else
+            {
+                //오디오, 애니 넣기
+                float x = transform.position.x - pos.x;
+                if(x < 0)
+                {
+                    x = 1;
+                }
+                else
+                {
+                    x = -1;
+                }
+
+                //StartCoroutine(BlinkCor());
+                StartCoroutine(Knockback(x));
+            }
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("EnemyAtk"))
+        {
+            Debug.Log("데미지받기");
+            Hurt(collision.GetComponentInParent<EnemyController>().damage, collision.transform.position);
+            FloatingTextManager.instance.CreateFloatingText(transform.position, "-1");
+        }
+
+    }
     public void DereaseHp(int _num)
     {
         if(!isInvincible)
@@ -39,6 +93,23 @@ public class StatusManager : MonoBehaviour
             UpdateHpStatus();
             StartCoroutine("BlinkCor");
         }
+    }
+
+    IEnumerator Knockback(float dir)
+    {
+        isknockback = true;
+        float ctime = 0;
+        while (ctime < 0.2f)
+        {
+            if (transform.rotation.y == 0)
+                transform.Translate(Vector2.left * 8 * Time.deltaTime * dir);
+            else
+                transform.Translate(Vector2.left * 8 * Time.deltaTime * -1f * dir);
+
+            ctime += Time.deltaTime;
+            yield return null;
+        }
+        isknockback = false;
     }
 
     IEnumerator BlinkCor()
@@ -52,6 +123,7 @@ public class StatusManager : MonoBehaviour
         }
 
         isInvincible = false;
+        isHurt = false;
     }
 
     public void IncreaseHp(int _num)
@@ -83,10 +155,8 @@ public class StatusManager : MonoBehaviour
 
     public void PlayerDead()
     {
-        if(currentHp <= 0)
-        {
             Debug.Log("죽음");
-            Time.timeScale = 0;
-        }
+        Time.timeScale = 0;
     }
+
 }

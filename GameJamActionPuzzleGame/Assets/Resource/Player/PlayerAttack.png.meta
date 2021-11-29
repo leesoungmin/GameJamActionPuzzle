@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 34b45eb5470026f4daf8e13c85725d64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7503402373696077091
+    second: PlayerAttack_0
+  - first:
+      213: -4552651117439710298
+    second: PlayerAttack_1
+  - first:
+      213: 2612168875758253219
+    second: PlayerAttack_2
+  - first:
+      213: -8173238361443544821
+    second: PlayerAttack_3
+  - first:
+      213: 3291024073344894140
+    second: PlayerAttack_4
+  - first:
+      213: -403862787636015564
+    second: PlayerAttack_5
+  - first:
+      213: -7427724726082570653
+    second: PlayerAttack_6
+  - first:
+      213: -4933628155599994406
+    second: PlayerAttack_7
+  - first:
+      213: 2623847480074107330
+    second: PlayerAttack_8
+  - first:
+      213: 6567917769350235451
+    second: PlayerAttack_9
+  - first:
+      213: -6485401797827079071
+    second: PlayerAttack_10
+  - first:
+      213: 8510142927389957704
+    second: PlayerAttack_11
+  - first:
+      213: -8128969428419845358
+    second: PlayerAttack_12
+  - first:
+      213: 7901174724089697784
+    second: PlayerAttack_13
+  - first:
+      213: -251678969993693485
+    second: PlayerAttack_14
+  - first:
+      213: -1142397368371272269
+    second: PlayerAttack_15
+  - first:
+      213: 2661458919156726953
+    second: PlayerAttack_16
+  - first:
+      213: -8754924237550598892
+    second: PlayerAttack_17
+  - first:
+      213: 7286445595384731174
+    second: PlayerAttack_18
+  - first:
+      213: 1927191703395442941
+    second: PlayerAttack_19
+  - first:
+      213: 5293188759109212894
+    second: PlayerAttack_20
+  - first:
+      213: -3448713970175363374
+    second: PlayerAttack_21
+  - first:
+      213: -8130238445051797156
+    second: PlayerAttack_22
+  - first:
+      213: 7174061891655928111
+    second: PlayerAttack_23
+  - first:
+      213: -6800371760683991576
+    second: PlayerAttack_24
+  - first:
+      213: 2326831433963390094
+    second: PlayerAttack_25
+  - first:
+      213: -5581016207884611914
+    second: PlayerAttack_26
+  - first:
+      213: 1815716240426933793
+    second: PlayerAttack_27
+  - first:
+      213: 6265346551818372989
+    second: PlayerAttack_28
+  - first:
+      213: 7111119687346522722
+    second: PlayerAttack_29
+  - first:
+      213: -5641615237543884060
+    second: PlayerAttack_30
+  - first:
+      213: 479973670001941182
+    second: PlayerAttack_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerAttack_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 24
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2c50dbb4f8ed790800000000000000
+      internalID: -7503402373696077091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAttack_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 24
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab88befdebb1d0c0800000000000000
+      internalID: -4552651117439710298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAttack_2
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 24
+        width: 136
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4f6eca0c9404420800000000000000
+      internalID: 2612168875758253219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAttack_3
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 24
+        width: 113
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01df819303d29e80800000000000000
+      internalID: -8173238361443544821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAttack_4
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 24
+        width: 152
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb44bf645f01cad20800000000000000
+      internalID: 3291024073344894140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAttack_5
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 24
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ec4f43fe0356af0800000000000000
+      internalID: -403862787636015564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
