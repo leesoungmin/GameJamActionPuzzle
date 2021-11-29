@@ -151,6 +151,7 @@ public class StatusManager : Singleton<StatusManager>
         Debug.Log("죽음");
         Time.timeScale = 0;
         theSM.GameOverPanel.SetActive(true);
+        SoundManager.instance.PlaySE("GameOver");
     }
 
 }

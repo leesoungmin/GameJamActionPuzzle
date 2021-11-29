@@ -13,6 +13,7 @@ public class Spike : MonoBehaviour
         {
             collision.transform.GetComponent<StatusManager>().Hurt(damage, collision.transform.position);
             collision.rigidbody.velocity = Vector3.up * Force;
+            SoundManager.instance.PlaySE("SteelTrap");
         }
     }
 }

@@ -34,12 +34,13 @@ public class Bullet : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyController>().DecreaseHp(1);
+            SoundManager.instance.PlaySE("AttackSFX");
             Destroy(gameObject);
         }
         if(collision.CompareTag("Grounded"))
         {
-            Destroy(gameObject);    
-
+            Destroy(gameObject);
+            SoundManager.instance.PlaySE("Bullet");
         }
     }
 }

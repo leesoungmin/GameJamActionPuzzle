@@ -19,7 +19,7 @@ public class BamSkill : MonoBehaviour
             if (collision.gameObject.name == "Player")
             {
                 Debug.Log("충돌");
-                EnemyController call = GameObject.Find("icon_9").GetComponent<EnemyController>();
+                EnemyController call = GameObject.Find("Gorani").GetComponent<EnemyController>();
                 call.Speed = 10f;
                 Invoke("nextmove",3f);
                 Invoke("nextmove22", 2f);
@@ -29,12 +29,12 @@ public class BamSkill : MonoBehaviour
     }
     void nextmove()
     {
-        EnemyController call = GameObject.Find("icon_9").GetComponent<EnemyController>();
+        EnemyController call = GameObject.Find("Gorani").GetComponent<EnemyController>();
         call.Speed = 0f;
     }
     void nextmove22()
     {
-        EnemyController call = GameObject.Find("icon_9").GetComponent<EnemyController>();
+        EnemyController call = GameObject.Find("Gorani").GetComponent<EnemyController>();
         call.Speed = 2;
     }
 

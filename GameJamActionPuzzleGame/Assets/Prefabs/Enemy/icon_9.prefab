@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHP: 1
+  maxHP: 3
   Speed: 2
   nextMove: -1
   damage: 1

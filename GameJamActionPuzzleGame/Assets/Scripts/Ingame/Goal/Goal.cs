@@ -12,14 +12,17 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("골");
             Time.timeScale = 0;
-            if(thsSM.currentStage <= 1)
+            if(thsSM.currentStage < 2)
             {
                 thsSM.ShowNextStageUi();
             }
             else
             {
-                SceneManager.LoadScene(3);
+                thsSM.ShowGameClear();
+                Time.timeScale = 1;
             }
         }
     }
+
+
 }

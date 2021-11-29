@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Text text_bulletCount;
 
-    Rigidbody2D rigidbody2D;    
+    Rigidbody2D rigidbody2D;
     SpriteRenderer spriteRenderer;
     Animator anim;
 
@@ -54,10 +54,9 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground")))
-        {
+        if (!isGround)
             Jump();
-        }
+
         
         Attack();
         Shout();
@@ -85,7 +84,6 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
             transform.rotation = Quaternion.Euler(0, 180, 0);
             Vector2 movement = Vector3.right * speed * Time.deltaTime;
-
             transform.Translate(movement);
         }
         else if (Input.GetKey(KeyCode.D))
@@ -109,15 +107,20 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.L))
             {
-                Instantiate(bullets, Throwpos.transform.position, transform.rotation);
+                SoundManager.instance.PlaySE("StoneThrow");
                 curbulletCount -= 1;
                 bulletcurTime = bulletcoolTime;
+                anim.SetTrigger("isThrow");
             }
         }
         else
         {
             bulletcurTime -= Time.deltaTime;
         }
+    }
+    public void BulletSpawn()
+    {
+        Instantiate(bullets, Throwpos.transform.position, transform.rotation);
     }
     void Attack()
     {
@@ -126,11 +129,13 @@ public class PlayerController : MonoBehaviour
             //공격
             if (Input.GetKeyDown(KeyCode.J))
             {
+                SoundManager.instance.PlaySE("HomiAttack");
                 Collider2D[] colliders = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
                 foreach (Collider2D collider in colliders)
                 {
                     if (collider.tag == "Enemy")
                     {
+                        SoundManager.instance.PlaySE("AttackSFX");
                         collider.GetComponent<EnemyController>().DecreaseHp(damage);
                     }
                 }
@@ -153,6 +158,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K) && Time.timeScale == 1 && !isJump)
         {
+            SoundManager.instance.PlaySE("Jump");
             isJump = true;
             rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
@@ -163,25 +169,9 @@ public class PlayerController : MonoBehaviour
     void IncreaseBullet(int _num)
     {
         curbulletCount += _num;
-        if(curbulletCount >= maxbulletCount)
+        if (curbulletCount >= maxbulletCount)
         {
             curbulletCount = maxbulletCount;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Grounded"))
-        {
-            isGround = true;
-            isJump = false;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Grounded"))
-        {
-            isGround = false;
         }
     }
 
@@ -190,19 +180,32 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isLadder = true;
+            anim.SetBool("isClimb", isLadder);
         }
         if (collision.CompareTag("HpItem"))
         {
             StatusManager.Instance.IncreaseHp(1);
             collision.gameObject.SetActive(false);
             Instantiate(healEffectPrefab, transform.position, Quaternion.identity);
+            SoundManager.instance.PlaySE("Healing");
         }
 
         if (collision.CompareTag("BulletItem"))
         {
+            SoundManager.instance.PlaySE("Bullet");
             IncreaseBullet(4);
             collision.gameObject.SetActive(false);
 
+        }
+        if (collision.transform.CompareTag("Grounded"))
+        {
+            isJump = false;
+            isGround = false;
+        }
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            isJump = false;
+            isGround = false;
         }
     }
 
@@ -211,9 +214,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isLadder = false;
+            anim.SetBool("isClimb", isLadder);
+
         }
 
-        
+
     }
 
 

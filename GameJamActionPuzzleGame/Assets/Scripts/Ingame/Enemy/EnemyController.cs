@@ -94,6 +94,7 @@ public class EnemyController : MonoBehaviour
                 {
                     if (collider[i].tag == "Player")
                     {
+                        SoundManager.instance.PlaySE("AttackSFX");
                         anim.SetTrigger("isAtt");
                     }
                     currentTime = coolTime;
@@ -124,7 +125,6 @@ public class EnemyController : MonoBehaviour
         {
             currentHp -= _num;
             StartCoroutine("BlinkCor");
-            FloatingTextManager.instance.CreateFloatingText(transform.position,"-1");
         }
     }
     IEnumerator BlinkCor()
